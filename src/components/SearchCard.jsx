@@ -73,7 +73,7 @@ export default function SearchCard({ onSearch, isLoading }) {
               onChange={handleChange}
               onBlur={() => setTouched(true)}
               onKeyDown={handleKeyDown}
-              placeholder="Contoh: 760720-03-6039"
+              placeholder="Masukkan 12 digit No. IC"
               className={`input-field pl-11 pr-4 ${showError ? 'border-red-400/60 focus:ring-red-400' : ''}`}
               aria-label="Masukkan Nombor Kad Pengenalan"
               aria-describedby={showError ? 'ic-error' : undefined}
@@ -146,7 +146,7 @@ export default function SearchCard({ onSearch, isLoading }) {
 
       {/* Info tambahan */}
       <p className="text-white/30 text-xs text-center mt-4">
-        Masukkan No. IC tanpa tanda sempang (-) atau dengan tanda sempang
+        Masukkan No. IC tanpa atau dengan tanda sempang (-)
       </p>
     </div>
   )
