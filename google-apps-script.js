@@ -18,7 +18,7 @@
  */
 
 const SHEET_ID = '1ko4QUq4VvQ7_VKiHxva6LJDwwU3KIygDqfXMFqx6QpU';
-const SHEET_NAME = 'DAFTAR_ANGGOTA_2026';
+const SHEET_NAME = 'Sheet1'; //DAFTAR_ANGGOTA_2026
 const IC_COL = 5; // Kolum F (0-indexed)
 
 // ─── FUNCTION UNTUK TEST (pilih ini di dropdown sebelum Debug) ───────────────
