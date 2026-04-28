@@ -154,6 +154,27 @@ export async function fetchAllRows() {
   }
 }
 
+const APPS_SCRIPT_URL = import.meta.env.VITE_APPS_SCRIPT_URL || ''
+
+export async function kemaskinAhli(noIC, data) {
+  if (!APPS_SCRIPT_URL) {
+    throw new Error('APPS_SCRIPT_URL_NOT_SET')
+  }
+
+  const payload = { noIC: noIC.replace(/\D/g, ''), ...data }
+
+  // Guna no-cors kerana Apps Script tidak support CORS header penuh
+  // Request akan dihantar, tapi response adalah opaque (tidak boleh dibaca)
+  await fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+  // Anggap berjaya jika tiada exception dilempar
+  return { success: true }
+}
+
 export async function cariAnggotaByIC(noIC) {
   const cleanIC = noIC.replace(/\D/g, '').trim()
   const rows = await fetchAllRows()
